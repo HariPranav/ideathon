@@ -2,11 +2,10 @@ from flask import Flask, render_template, flash, request, redirect, url_for, jso
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
 # from doc_similarity import cosine_sim 
 
-import pymongo
 import json
-from pymongo import MongoClient
 from pprint import pprint
 
+import csv
 
 # from params_extraction import fun
 
@@ -50,11 +49,55 @@ def customer():
     return render_template('customer.html')
 
 
-
-'''@app.route("/do", methods=['POST'])
+@app.route("/kyc", methods=['GET','POST'])
 def do():
-    res = fun("static/data/test1.pdf")
-    return render_template('index.html', res=res,results=do_results(json.loads(request.data)))'''
+    #request.args['product_id']
+    csvfile = open('data/test/Know your Customer.csv', 'r')
+    fieldnames = ("Customer ID","1","2","3","4","5")
+    reader = csv.DictReader( csvfile, fieldnames)
+    string = ''
+    for row in reader:
+        string += json.dumps(row)
+        string += '\n' 
+    print string
+    return render_template('index.html', result=string)
+
+@app.route("/kyc1", methods=['GET','POST'])
+def do1():
+    csvfile = open('data/test/Know your Customer_1.csv', 'r')
+    fieldnames = ("Customer ID","1","2","3","4","5")
+    reader = csv.DictReader( csvfile, fieldnames)
+    string = ''
+    for row in reader:
+        string += json.dumps(row)
+        string += '\n' 
+    print string
+    return render_template('index.html', result=string)
+
+@app.route("/kyp", methods=['GET','POST'])
+def do2():
+    csvfile = open('data/test/Know your Product.csv', 'r')
+    fieldnames = ("Customer ID","1","2","3","4","5")
+    reader = csv.DictReader( csvfile, fieldnames)
+    string = ''
+    for row in reader:
+        string += json.dumps(row)
+        string += '\n' 
+    print string
+    return render_template('index.html', result=string)
+
+@app.route("/kyp1", methods=['GET','POST'])
+def do3():
+    csvfile = open('data/test/Know your Product_1.csv', 'r')
+    fieldnames = ("Customer ID","1","2","3","4","5")
+    reader = csv.DictReader( csvfile, fieldnames)
+    string = ''
+    for row in reader:
+        string += json.dumps(row)
+        string += '\n' 
+    print string
+    return render_template('index.html', result=string)
+
 
 if __name__ == "__main__":
     app.run()
