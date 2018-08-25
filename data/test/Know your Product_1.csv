@@ -1,0 +1,12 @@
+Sku,1,2,3,4,5
+12,"Age=28-30,Region=South","Age=30-33,Region= East,Month= 8","Age=30-33,Region= North,Month= 1","Age=25-28,Region= South,Month= 1","Age=33-36,Region= West, Month= 3"
+14,"Age=30-33,Region= North,Month= 1","Age=28-30,Region=South","Age=30-33,Region= East,Month= 8","Age=33-36,Region= West, Month= 3","Age=25-28,Region= South,Month= 1"
+6,"Age=36-40, Region=East","Age=30-33,Region= North,Month= 1","Age=33-36,Region= West, Month= 3","Age=25-28,Region= South,Month= 1","Age=30-33,Region= East,Month= 8"
+20,"Age=28-30,Region=South","Age=30-33,Region= North,Month= 1","Age=25-28,Region= South,Month= 1","Age=28-30,Region=South","Age=30-33,Region= East,Month= 8"
+4,"Age=36-40, Region=East","Age=33-36,Region= West, Month= 3","Age=30-33,Region= North,Month= 1","Age=30-33,Region= East,Month= 8","Age=33-36,Region= West, Month= 3"
+8,"Age=28-30,Region=South","Age=33-36,Region= West, Month= 3","Age=25-28,Region= South,Month= 1","Age=25-28,Region= South,Month= 1","Age=28-30,Region=South"
+17,"Age=25-28,Region= South,Month= 1","Age=25-28,Region= South,Month= 1","Age=30-33,Region= East,Month= 8","Age=25-28,Region= South,Month= 1","Age=33-36,Region= West, Month= 3"
+12,"Age=30-33,Region= North,Month= 1","Age=30-33,Region= East,Month= 8","Age=30-33,Region= North,Month= 1","Age=28-30,Region=South","Age=33-36,Region= West, Month= 3"
+16,"Age=30-33,Region= East,Month= 8","Age=25-28,Region= South,Month= 1","Age=33-36,Region= West, Month= 3","Age=30-33,Region= North,Month= 1","Age=28-30,Region=South"
+11,"Age=28-30,Region=South","Age=30-33,Region= East,Month= 8","Age=30-33,Region= North,Month= 1","Age=25-28,Region= South,Month= 1","Age=33-36,Region= West, Month= 3"
+5,"Age=25-28,Region= South,Month= 1","Age=30-33,Region= East,Month= 8","Age=30-33,Region= North,Month= 1","Age=28-30,Region=South","Age=30-33,Region= North,Month= 1"

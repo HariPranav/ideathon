@@ -1,0 +1,10 @@
+1. Install MongoDB. (https://docs.mongodb.com/manual/installation/)
+2. Install Python 2.7. (https://www.python.org/download/releases/2.7/) 
+3. Open terminal/cmd in folder.
+4. Run "pip install" in terminal.
+5. Run "python eyhackmain.py" in terminal. 
+
+6. Place pdf file directly in static/data folder.
+7. Open http://localhost:5000 in browser.
+8. Upload file/files to be read.
+
