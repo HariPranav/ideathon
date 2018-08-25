@@ -177,7 +177,7 @@
       </div>
 
       {% include 'footer.html' %}
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript">
   $ ('#submitfiles').click ( function () {
     $('submitfiless').append('<img src="static/spinner.gif" id="loader" style="margin-left:45%">')
@@ -188,7 +188,7 @@
     
 
     request = $.ajax({
-        url: "/do",
+        url: "/kyc",
         contentType: 'application/json',
         type: "post",
         data: JSON.stringify(names),
@@ -202,19 +202,18 @@
   $ ('#submitid').click ( function () {
     $('submitids').append('<img src="static/spinner.gif" id="loader" style="margin-left:45%">')
     event.preventDefault()
-    var files = $('#basicUploadFile').prop("files")
-    var names = $.map(files, function(val) { return val.name; });
+
     //show preloader
     
 
     request = $.ajax({
-        url: "/do",
+        url: "/kyc",
         contentType: 'application/json',
         type: "post",
-        data: JSON.stringify(names),
         success:function(response){
-            $('body').empty();
-            $('body').append(response); 
+          console.log(response)
+            $('submitids').empty();
+            $('submitids').append(response);
        }
     });
 });

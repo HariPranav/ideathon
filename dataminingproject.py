@@ -60,7 +60,7 @@ def do():
         string += json.dumps(row)
         string += '\n' 
     print string
-    return render_template('index.html', result=string)
+    return string
 
 @app.route("/kyc1", methods=['GET','POST'])
 def do1():
@@ -72,7 +72,7 @@ def do1():
         string += json.dumps(row)
         string += '\n' 
     print string
-    return render_template('index.html', result=string)
+    return string
 
 @app.route("/kyp", methods=['GET','POST'])
 def do2():
@@ -84,7 +84,7 @@ def do2():
         string += json.dumps(row)
         string += '\n' 
     print string
-    return render_template('index.html', result=string)
+    return string
 
 @app.route("/kyp1", methods=['GET','POST'])
 def do3():
@@ -96,7 +96,7 @@ def do3():
         string += json.dumps(row)
         string += '\n' 
     print string
-    return render_template('index.html', result=string)
+    return string
 
 
 if __name__ == "__main__":
