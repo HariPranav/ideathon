@@ -53,7 +53,7 @@ def customer():
 def do():
     #request.args['product_id']
     csvfile = open('data/test/Know your Customer.csv', 'r')
-    fieldnames = ("Customer ID","1","2","3","4","5")
+    fieldnames = ("Rank", "Product")
     reader = csv.DictReader( csvfile, fieldnames)
     string = ''
     for row in reader:
@@ -77,7 +77,7 @@ def do1():
 @app.route("/kyp", methods=['GET','POST'])
 def do2():
     csvfile = open('data/test/Know your Product.csv', 'r')
-    fieldnames = ("Customer ID","1","2","3","4","5")
+    fieldnames = ("Rank", "Age", "Region", "Month")
     reader = csv.DictReader( csvfile, fieldnames)
     string = ''
     for row in reader:
@@ -89,7 +89,7 @@ def do2():
 @app.route("/kyp1", methods=['GET','POST'])
 def do3():
     csvfile = open('data/test/Know your Product_1.csv', 'r')
-    fieldnames = ("Customer ID","1","2","3","4","5")
+    fieldnames = ("Sku","1","2","3","4","5")
     reader = csv.DictReader( csvfile, fieldnames)
     string = ''
     for row in reader:
