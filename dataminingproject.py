@@ -60,11 +60,12 @@ def do():
     fieldnames = ("Rank", "Product")
     reader = csv.DictReader( csvfile, fieldnames)
     string = ''
+    result = []
     for row in reader:
-        string += json.dumps(row)
-        string += '\n' 
-    print string
-    return string
+        result.append(row)
+        print row
+    print result
+    return json.dumps(result)
 
 @app.route("/kyc1", methods=['GET','POST'])
 def do1():
@@ -72,11 +73,12 @@ def do1():
     fieldnames = ("Customer ID","1","2","3","4","5")
     reader = csv.DictReader( csvfile, fieldnames)
     string = ''
+    result = []
     for row in reader:
-        string += json.dumps(row)
-        string += '\n' 
-    print string
-    return string
+        result.append(row)
+        print row
+    print result
+    return json.dumps(result)
 
 @app.route("/kyp", methods=['GET','POST'])
 def do2():
@@ -84,11 +86,12 @@ def do2():
     fieldnames = ("Rank", "Age", "Region", "Month")
     reader = csv.DictReader( csvfile, fieldnames)
     string = ''
+    result = []
     for row in reader:
-        string += json.dumps(row)
-        string += '\n' 
-    print string
-    return string
+        result.append(row)
+        print row
+    print result
+    return json.dumps(result)
 
 @app.route("/kyp1", methods=['GET','POST'])
 def do3():
@@ -96,11 +99,12 @@ def do3():
     fieldnames = ("Sku","1","2","3","4","5")
     reader = csv.DictReader( csvfile, fieldnames)
     string = ''
+    result = []
     for row in reader:
-        string += json.dumps(row)
-        string += '\n' 
-    print string
-    return string
+        result.append(row)
+        print row
+    print result
+    return json.dumps(result)
 
 
 if __name__ == "__main__":

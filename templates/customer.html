@@ -5,11 +5,14 @@
       
    
     <div class="row">
-
+      
       <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center col-md-6">
+        
+        <div class="card" style="margin-left: 20px;">
         <kyc><!--Know one your customers-->
-        <h1 class="display-6">Know Your customer</h1>
-        <p class="lead">Quickly Get the Products to sell to the customer.</p>
+          <h1 class="card-header">Know Your Customer</h1>
+            <div class="card-body">
+        <p class="lead" class="card-title">Quickly Get the Products to sell to the customer.</p>
         <br>
         <form class="form-inline center">
             
@@ -19,28 +22,43 @@
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <input type="text" class="form-control" id="inputPassword2" placeholder="Enter Customer ID">
             </div>
-            <button type="submit" id="submitids" class="btn btn-primary mb-2">Sampann Wants to Know</button>
+            <button type="submit" id="submitids" class="btn btn-primary mb-2">Sampann Wants to Know </button>
         </form>
-      </kyc>
       </div>
-      <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center col-md-6">
-        <kac> <!--Know all customers-->
-        <h1 class="display-6"></h1>
-        <h1 class="display-6">Let's Know Everyone</h1>
+      </kyc>
+    </div>
+      </div>
 
-        <p class="lead">Let us handover you the power of scale.</p>
+       <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center col-md-6">
+        
+        <div class="card" style="margin-left: 20px; margin-right: 10px;">
+        <kac><!--Know one your customers-->
+          <h1 class="card-header">Let's Know Everyone</h1>
+            <div class="card-body">
+        <p class="lead" class="card-title">Let us handover you the power of scale.</p>
         <br>
         <form class="form-inline center">
             
             <div class="form-group mx-sm-4 mb-2 ">
              
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input id="fileSelect" type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" /> 
-          </div>
-            <button type="submit" id="submitfiles" class="btn btn-primary mb-2">Sampann Wants to Know</button>
+              <input id="fileSelect" type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" /> 
+            </div>
+            <button type="submit" id="submitfiles" class="btn btn-primary mb-2">Go Now</button>
         </form>
-      </kac>
       </div>
+      </kac>
+    </div>
+      </div>
+  
+
+
+      
+
+
+
+
     </div>
         <div class="container">
           <br>
@@ -51,39 +69,8 @@
           <div class="card-header">
             <h4 class="my-0 font-weight-normal">Product List</h4>
           </div>
-          <div class="card-body">
-            <table id="tblData" style="text-align: center; margin-left: 40%; "> 
-                <tr> 
-                  <th>Product Id</th>
-                  
-                  <th>Propensity</th> 
-                </tr> 
-                <tr> 
-                  <td>21 - 25</td>
-                   
-                  <td>20</td> 
-                </tr> 
-                <tr> 
-                  <td>26 - 30</td>
-                   
-                  <td>36</td> 
-                </tr>
-                <tr> 
-                  <td>31 - 35</td> 
-                  
-                  <td>20</td> 
-                </tr> 
-                <tr> 
-                  <td>36 - 40</td>
-                  
-                  <td>20</td> 
-                </tr>
-                <tr> 
-                  <td>41 - 45</td>
-                  
-                  <td>20</td> 
-                </tr>  
-              </table>
+          <div class="card-body" >
+            <dodend >Your Result will be shown here.</dodend>
               <br>
               <br>            
       <button type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="exportTableToExcel('tblData')">Export Table Data To Excel File</button>
@@ -93,13 +80,15 @@
         </div>
         
       </div>
+</div>
+
 
 {% include 'footer.html' %}
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <script type="text/javascript">
   $ ('#submitfiles').click ( function () {
-    $('kac').append('<img src="static/spinner.gif" id="loader" style="margin-left:10%">')
+    //$('kac').append('<img src="static/spinner.gif" id="loader" style="margin-left:10%">')
     event.preventDefault()
     var files = $('#fileSelect').prop("files")
     var names = $.map(files, function(val) { return val.name; });
@@ -112,8 +101,11 @@
         type: "post",
         data: JSON.stringify(names),
         success:function(response){
-            $('kac').empty();
-            $('kac').append(response);
+           
+            //$('kac').empty();
+            console.log(createTable(JSON.parse(response)))
+            $('dodend').empty();
+            $('dodend').append(createTable(JSON.parse(response)));
   // End of Function  
        }
 
@@ -139,7 +131,7 @@
 });
   
   $ ('#submitids').click ( function () {
-    $('kyc').append('<img src="static/spinner.gif" id="loader" style="margin-left:45%">')
+    //$('kyc').append('<img src="static/spinner.gif" id="loader" style="margin-left:45%">')
     event.preventDefault()
     //var files = $('#basicUploadFile').prop("files")
     //var names = $.map(files, function(val) { return val.name; });
@@ -152,9 +144,10 @@
         type: "post",
         //data: JSON.stringify(names),
         success:function(response){
-          console.log(response)
-            $('kyc').empty();
-            $('kyc').append(response);
+            //$('kyc').empty();
+            console.log(createTable(JSON.parse(response)))
+            $('dodend').empty();
+            $('dodend').append(createTable(JSON.parse(response)));
        }
     });
 });
