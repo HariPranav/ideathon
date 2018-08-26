@@ -44,6 +44,10 @@ def index():
 def stats():
     return render_template('stats.html')
 
+@app.route("/ppt", methods=['GET'])
+def indexs():
+    return render_template('ppt.html')
+
 '''@app.route("/<doc_name>", methods=['GET'])
 def doc(doc_name):
     # similarity = cosine_sim('a little bird', 'a little bird')
