@@ -10,6 +10,26 @@ import csv
 # from params_extraction import fun
 
 
+#python function to search through csv
+
+import sys
+
+#input number you want to search
+def searchprod(id):
+    number = id
+    file = "product_"+id+".csv";
+    return file
+
+def searchcust(id):
+    numbers=id
+    csv_file = csv.reader(open('data/test/Recom.csv', "rb"), delimiter=",")
+    #loop through csv list
+    for row in csv_file:
+        #if current rows 2nd value is equal to input, print that row
+        if numbers == row[0]:
+             return row
+
+
 # App config.
 DEBUG = True
 app = Flask(__name__)
@@ -51,6 +71,66 @@ def product():
 @app.route("/customer", methods=['GET'])
 def customer():
     return render_template('customer.html')
+
+
+@app.route("/customers", methods=['GET'])
+def customers():
+    return render_template('customers.html')
+
+@app.route("/customers/<id>", methods=['GET'])
+def customerss_id(id):
+    result = searchcust(id)
+    print result
+    result = json.dumps(result)
+    '''return render_template('customers.html',value=result)
+    '''
+    return result
+
+@app.route("/products", methods=['GET'])
+def products():
+    return render_template('products.html')
+
+
+
+@app.route("/products/<id>", methods=['GET'])
+def productss_id(id):
+    print id;
+    file = searchprod(id);
+    csvfile = open('data/test/'+file, 'r')
+    fieldnames = ("Rank","Segment")
+    reader = csv.DictReader( csvfile, fieldnames)
+    string = ''
+    result = []
+    for row in reader:
+        result.append(row)
+        print row
+    print result
+    result = json.dumps(result)
+    return result
+
+@app.route("/kypc/<id>", methods=['GET'])
+def customers_id(id):
+    result = searchcust(id)
+    print result
+    result = json.dumps(result)
+    return json.dumps(result)
+    
+ 
+@app.route("/kyca/<id>", methods=['GET'])
+def products_id(id):
+    print id;
+    file = searchprod(id);
+    csvfile = open('data/test/'+file, 'r')
+    fieldnames = ("Rank", "Age", "Region", "Month")
+    reader = csv.DictReader( csvfile, fieldnames)
+    string = ''
+    result = []
+    for row in reader:
+        result.append(row)
+        print row
+    print result
+    result = json.dumps(result)
+    return json.dumps(result)
 
 
 @app.route("/kyc", methods=['GET','POST'])

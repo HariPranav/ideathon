@@ -3,6 +3,8 @@
           <div class="col-12 col-md" style="text-align: center;">
             <br>Ignited_Minds
             <small class="d-block mb-3 text-muted">&copy; 2018-2019</small>
+            <a href="/customers">Customers</a>
+            <a href="/products">Products</a>
           </div>
       </footer>
     </div>
@@ -35,7 +37,7 @@ function createTable(jsonArray) {
     const rowHtml = jsonArray.map((jsonObj) => `<tr>${createRow(jsonObj)}</tr>`).join("")
     var html = ""
     if (jsonArray.length > 0) {
-        html = `<table id="tblData">${createTHead(Object.keys(jsonArray[0]))}<tbody>${rowHtml}</tbody></table>`
+        html = `<table id="tblData" class="center">${createTHead(Object.keys(jsonArray[0]))}<tbody>${rowHtml}</tbody></table>`
     } 
     return html
 }

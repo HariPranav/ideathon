@@ -6,31 +6,31 @@
       
 <div class="row">
       
-      
-
-
       <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center col-md-6">
         
-        <div class="card" style="margin-left: 20px; margin-right: 10px;">
-        <submitfiless><!--Know one your customers-->
-          <h1 class="card-header">Show me Your Power</h1>
+        <div class="card" style="margin-left: 20px;">
+        <submitidsa><!--Know one your customers-->
+          <h1 class="card-header">Know Your Product</h1>
             <div class="card-body">
-        <p class="lead" class="card-title">Let us handover you the power of scale.</p>
+        <p class="lead" class="card-title">Quickly search the effect of a product over the market.</p>
         <br>
-        <form class="form-inline center">
+        <form method="get" class="form-inline center">
             
             <div class="form-group mx-sm-4 mb-2 ">
              
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <input id="fileSelect" type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" /> 
+              <input type="text" class="form-control" id="inputPassword2" placeholder="Enter Product ID">
             </div>
-            <button type="submit" id="submitfiles" class="btn btn-primary mb-2">Go Now</button>
+            <button type="submit" id="submitid" class="btn btn-primary mb-2">Sampann Wants to Know </button>
         </form>
       </div>
-      </submitfiless>
+      </submitidsa>
     </div>
       </div>
+
+
+    
 
       
       </div>
@@ -59,24 +59,6 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript">
   
-  $ ('#submitfiles').click ( function () {
-    //$('submitfiless').append('<img src="static/spinner.gif" id="loader" style="margin-left:45%">')
-    event.preventDefault()
-    var files = $('#fileSelect').prop("files")
-    var names = $.map(files, function(val) { return val.name; });
-    request = $.ajax({
-        url: "/kyp1",
-        contentType: 'application/json',
-        type: "post",
-        data: JSON.stringify(names),
-        success:function(response){
-            //$('submitfiless').empty();
-            console.log(createTable(JSON.parse(response)))
-            $('dodend').empty();
-            $('dodend').append(createTable(JSON.parse(response)));
-       }
-    });
-});
 
   $ ('#submitid').click ( function () {
     //$('submitids').append('<img src="static/spinner.gif" id="loader" style="margin-left:45%">')
@@ -86,9 +68,9 @@
     
 
     request = $.ajax({
-        url: "/kyp",
+        url: "/products/"+ $("#inputPassword2").val(),
         contentType: 'application/json',
-        type: "post",
+        type: "get",
         success:function(response){
             console.log(createTable(JSON.parse(response)))
             $('dodend').empty();

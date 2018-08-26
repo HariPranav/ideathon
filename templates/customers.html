@@ -2,38 +2,42 @@
   <body>
 
     {% include 'navbar.html' %}
-    
       
-<div class="row">
+   
+    <div class="row">
       
-      
-
-
       <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center col-md-6">
         
-        <div class="card" style="margin-left: 20px; margin-right: 10px;">
-        <submitfiless><!--Know one your customers-->
-          <h1 class="card-header">Show me Your Power</h1>
+        <div class="card" style="margin-left: 20px;">
+        <kyc><!--Know one your customers-->
+          <h1 class="card-header">Know Your Customer</h1>
             <div class="card-body">
-        <p class="lead" class="card-title">Let us handover you the power of scale.</p>
+        <p class="lead" class="card-title">Quickly Get the Products to sell to the customer.</p>
         <br>
-        <form class="form-inline center">
+        <form method="get" class="form-inline center">
             
             <div class="form-group mx-sm-4 mb-2 ">
              
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <input id="fileSelect" type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" /> 
+              <input type="text" class="form-control" id="inputPassword2" placeholder="Enter Customer ID">
             </div>
-            <button type="submit" id="submitfiles" class="btn btn-primary mb-2">Go Now</button>
+            <button type="submit" id="submitids" class="btn btn-primary mb-2">Sampann Wants to Know </button>
         </form>
       </div>
-      </submitfiless>
+      </kyc>
     </div>
       </div>
 
+       
+
+
       
-      </div>
+
+
+
+
+    </div>
         <div class="container">
           <br>
     <hr>
@@ -55,48 +59,61 @@
         
       </div>
 </div>
-      {% include 'footer.html' %}
+
+
+{% include 'footer.html' %}
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 <script type="text/javascript">
-  
   $ ('#submitfiles').click ( function () {
-    //$('submitfiless').append('<img src="static/spinner.gif" id="loader" style="margin-left:45%">')
+    //$('kac').append('<img src="static/spinner.gif" id="loader" style="margin-left:10%">')
     event.preventDefault()
     var files = $('#fileSelect').prop("files")
     var names = $.map(files, function(val) { return val.name; });
-    request = $.ajax({
-        url: "/kyp1",
-        contentType: 'application/json',
-        type: "post",
-        data: JSON.stringify(names),
-        success:function(response){
-            //$('submitfiless').empty();
-            console.log(createTable(JSON.parse(response)))
-            $('dodend').empty();
-            $('dodend').append(createTable(JSON.parse(response)));
-       }
-    });
-});
-
-  $ ('#submitid').click ( function () {
-    //$('submitids').append('<img src="static/spinner.gif" id="loader" style="margin-left:45%">')
-    event.preventDefault()
-
     //show preloader
     
 
     request = $.ajax({
-        url: "/kyp",
+        url: "/kyc1",
         contentType: 'application/json',
         type: "post",
+        data: JSON.stringify(names),
         success:function(response){
+           
+            //$('kac').empty();
             console.log(createTable(JSON.parse(response)))
             $('dodend').empty();
-            $('dodend').append(createTable(JSON.parse(response)))
-    }
-            //$('submitids').empty();
-            //$('submitids').append(response);
-       });
+            $('dodend').append(JSON.parse(response));
+  // End of Function  
+       }
+
+
+    });
+
+});
+  
+  $ ('#submitids').click ( function () {
+    //$('kyc').append('<img src="static/spinner.gif" id="loader" style="margin-left:45%">')
+    event.preventDefault()
+    //var files = $('#basicUploadFile').prop("files")
+    //var names = $.map(files, function(val) { return val.name; });
+    //show preloader
+    
+
+    request = $.ajax({
+        url: "/customers/" + $("#inputPassword2").val(),
+        contentType: 'application/json',
+        type: "get",
+        //data: JSON.stringify(names),
+        success:function(response){
+            //$('kyc').empty();
+            //console.log(createTable(JSON.parse(response)))
+            
+            $('dodend').empty();
+            $('dodend').append(JSON.parse(response).filter((name)=>name !== "NA").join(", "));
+
+       }
+    });
 });
 
 </script>
