@@ -1,4 +1,3 @@
-Sku,1,2,3,4,5
 12,"Age=28-30,Region=South","Age=30-33,Region= East,Month= 8","Age=30-33,Region= North,Month= 1","Age=25-28,Region= South,Month= 1","Age=33-36,Region= West, Month= 3"
 14,"Age=30-33,Region= North,Month= 1","Age=28-30,Region=South","Age=30-33,Region= East,Month= 8","Age=33-36,Region= West, Month= 3","Age=25-28,Region= South,Month= 1"
 6,"Age=36-40, Region=East","Age=30-33,Region= North,Month= 1","Age=33-36,Region= West, Month= 3","Age=25-28,Region= South,Month= 1","Age=30-33,Region= East,Month= 8"

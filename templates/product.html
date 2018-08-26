@@ -182,19 +182,19 @@
   $ ('#submitfiles').click ( function () {
     $('submitfiless').append('<img src="static/spinner.gif" id="loader" style="margin-left:45%">')
     event.preventDefault()
-    var files = $('#basicUploadFile').prop("files")
+    var files = $('#fileSelect').prop("files")
     var names = $.map(files, function(val) { return val.name; });
     //show preloader
     
 
     request = $.ajax({
-        url: "/kyc",
+        url: "/kyp1",
         contentType: 'application/json',
         type: "post",
         data: JSON.stringify(names),
         success:function(response){
-            $('body').empty();
-            $('body').append(response); 
+            $('submitfiless').empty();
+            $('submitfiless').append(response); 
        }
     });
 });
@@ -207,7 +207,7 @@
     
 
     request = $.ajax({
-        url: "/kyc",
+        url: "/kyp",
         contentType: 'application/json',
         type: "post",
         success:function(response){

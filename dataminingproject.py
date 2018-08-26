@@ -20,6 +20,10 @@ app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 def index():
     return render_template('index.html')
 
+@app.route("/stats", methods=['GET'])
+def stats():
+    return render_template('stats.html')
+
 '''@app.route("/<doc_name>", methods=['GET'])
 def doc(doc_name):
     # similarity = cosine_sim('a little bird', 'a little bird')
